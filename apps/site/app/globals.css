@@ -373,6 +373,8 @@ table.styles tbody tr { transition: background-color .18s; }
 table.styles tbody tr:hover { background: #fbfaf8; }
 .r { text-align: right; font-family: var(--mono); font-variant-numeric: tabular-nums; font-size: 13px; }
 .tag-small { font-family: var(--mono); font-size: 9.5px; letter-spacing: 0.09em; text-transform: uppercase; color: #a8571a; border: 1px solid rgba(168, 87, 26, 0.4); background: rgba(168, 87, 26, 0.07); border-radius: 4px; padding: 2px 6px; margin-left: 8px; white-space: nowrap; }
+.style-link { color: var(--cream-ink); text-decoration: underline; text-decoration-color: rgba(255, 88, 0, 0.35); text-underline-offset: 3px; transition: color .18s, text-decoration-color .18s; }
+.style-link:hover { color: var(--accent); text-decoration-color: var(--accent); }
 .off-pos { color: var(--accent); }
 .off-nil { color: var(--cream-ink-3); }
 

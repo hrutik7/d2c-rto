@@ -1,6 +1,6 @@
 import { Rise } from './Rise';
 
-export function Cta({ shopUrl }: { shopUrl: string }) {
+export function Cta({ tryOnUrl }: { tryOnUrl: string }) {
   return (
     <section className="cta-sec">
       <div className="blob" />
@@ -20,8 +20,8 @@ export function Cta({ shopUrl }: { shopUrl: string }) {
           </p>
         </Rise>
         <Rise className="cta-btns" delay={170}>
-          <a href={shopUrl} className="btn btn-primary">
-            See it on a product page
+          <a href={tryOnUrl} className="btn btn-primary">
+            Try it on a real product page
           </a>
           <a href="#leak" className="btn btn-ghost">
             Replay the re-cut
@@ -32,7 +32,7 @@ export function Cta({ shopUrl }: { shopUrl: string }) {
   );
 }
 
-export function Footer({ shopUrl }: { shopUrl: string }) {
+export function Footer({ shopUrl, tryOnUrl }: { shopUrl: string; tryOnUrl: string }) {
   return (
     <footer className="foot">
       <div className="wrap">
@@ -62,6 +62,7 @@ export function Footer({ shopUrl }: { shopUrl: string }) {
           <div className="foot-col">
             <h4>Product</h4>
             <a href="#how">How it works</a>
+            <a href={tryOnUrl}>Try-on</a>
             <a href={shopUrl}>Storefront demo</a>
             <a href="#faq">FAQ</a>
           </div>

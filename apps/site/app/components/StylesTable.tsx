@@ -7,7 +7,15 @@ interface StyleRow {
 }
 
 /** The one inverted section — light ground, because this is the worksheet. */
-export function StylesTable({ styles, shopUrl }: { styles: StyleRow[]; shopUrl: string }) {
+export function StylesTable({
+  styles,
+  pdp,
+  tryOnUrl,
+}: {
+  styles: StyleRow[];
+  pdp: (styleId: string) => string;
+  tryOnUrl: string;
+}) {
   return (
     <section className="cream-sec" id="styles">
       <div className="wrap">
@@ -45,7 +53,9 @@ export function StylesTable({ styles, shopUrl }: { styles: StyleRow[]; shopUrl: 
                 {styles.map((s) => (
                   <tr key={s.styleId}>
                     <td>
-                      {s.styleName}
+                      <a className="style-link" href={pdp(s.styleId)}>
+                        {s.styleName}
+                      </a>
                       {s.actuallyRunsSmall && (
                         <span
                           className="tag-small"
@@ -70,8 +80,8 @@ export function StylesTable({ styles, shopUrl }: { styles: StyleRow[]; shopUrl: 
 
         <Rise delay={180}>
           <div style={{ display: 'flex', gap: 16, flexWrap: 'wrap', alignItems: 'center', marginTop: 26 }}>
-            <a href={shopUrl} className="btn btn-cream">
-              See the offset on a live product page
+            <a href={tryOnUrl} className="btn btn-cream">
+              Try on the worst offender
             </a>
             <p className="t-12" style={{ maxWidth: '46ch' }}>
               <strong style={{ color: '#a8571a' }}>Truly small</strong> is ground truth from the

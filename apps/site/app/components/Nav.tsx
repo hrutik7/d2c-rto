@@ -9,7 +9,7 @@ const LINKS = [
   { href: '#faq', label: 'FAQ' },
 ];
 
-export function Nav({ shopUrl }: { shopUrl: string }) {
+export function Nav({ tryOnUrl }: { tryOnUrl: string }) {
   const [stuck, setStuck] = useState(false);
 
   useEffect(() => {
@@ -39,8 +39,8 @@ export function Nav({ shopUrl }: { shopUrl: string }) {
           ))}
         </div>
 
-        <a href={shopUrl} className="btn btn-primary btn-sm">
-          See it on a product page
+        <a href={tryOnUrl} className="btn btn-primary btn-sm">
+          Try it on a real product page
         </a>
       </div>
     </nav>

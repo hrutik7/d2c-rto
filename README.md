@@ -61,6 +61,28 @@ data/         generated fixtures, committed, read-only
 scripts/      generate.ts — the synthetic corpus
 ```
 
+### Deploy
+
+Two separate origins, two separate builds:
+
+```
+apps/site   physisync.co.in        the landing page          port 3001 locally
+apps/web    demo.physisync.co.in   the demo store + try-on   port 3000 locally
+```
+
+`apps/site` links across to the store, so it needs both origins at **build** time —
+`NEXT_PUBLIC_*` is inlined into the bundle, not read at runtime, so a container started
+with the right values but built without them still ships `localhost`.
+
+```bash
+NEXT_PUBLIC_SITE_URL=https://physisync.co.in \
+NEXT_PUBLIC_STORE_URL=https://demo.physisync.co.in \
+  pnpm --filter @rto/site build
+```
+
+`apps/web` needs nothing extra for the try-on: widget.js derives its iframe origin from
+its own `<script src>`, so it follows whatever host serves it.
+
 ### Why two data stores
 
 `data/*.json` holds the 45,000-order historical corpus, exchanges, garment specs and the
@@ -93,6 +115,9 @@ widget.js  (~3KB)   injects the button, reads product context, opens the iframe,
                     receives postMessage, selects the variant in the theme picker
 /embed     (iframe) camera, MediaPipe, sizing math, our CSS — allow="camera"
 ```
+
+`/shop/<styleId>#find-my-size` opens the modal on load. The landing page in `apps/site`
+links here, so a "try it on" CTA lands *in* the try-on rather than next to the button.
 
 **Never load MediaPipe on PDP render.** The button is 3KB; the model downloads when she
 taps *Find my size*. Say that out loud in the demo — anyone with ecommerce background is

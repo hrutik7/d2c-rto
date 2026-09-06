@@ -189,10 +189,20 @@ interface Product {
     else document.body.appendChild(btn);
   }
 
+  // A link can ask for the modal directly: /shop/KAI-110#find-my-size. Without
+  // it a campaign or demo that promises "try it on" only ever lands the visitor
+  // NEXT to the button, which is not the same thing.
+  const DEEP_LINK = '#find-my-size';
+
   function boot() {
     const product = findProduct();
     if (!product) return; // not a product page — do nothing, quietly
     inject(product);
+
+    if (window.location.hash === DEEP_LINK) open(product);
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === DEEP_LINK) open(product);
+    });
   }
 
   if (document.readyState === 'loading') {
