@@ -46,5 +46,16 @@ already building on it.
 
 With three people and twenty-four hours, integration at H16 is the risk — not the camera.
 
+## Work of each app
+
+This monorepo is split into a few focused apps, each doing one job in the fit-accuracy flow:
+
+- `apps/site` — the public-facing marketing site. It explains the RTO problem, quantifies the cost, and directs visitors to the actual product and sizing flow.
+- `apps/web` — the storefront app. It renders the shopper-facing product experience, integrates sizing logic, and owns the e-commerce surface where the fit recommendation is shown.
+- `apps/tryon` — the camera-based fitting demo. It runs the MediaPipe + garment overlay flow, captures body landmarks, and computes a size recommendation from the live image or uploaded photo.
+- `apps/embed` — the embeddable widget surface. This is the lightweight integration point for dropping the sizing experience into an existing partner storefront or host site.
+
+Together they separate the story, the purchase flow, and the measurement layer so the fit logic can be reused without coupling all interfaces to the same code path.
+
 ---
 
