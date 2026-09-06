@@ -49,6 +49,7 @@ should be blocked waiting on the camera.
 ```
 apps/
   web/        Next.js — diagnosis, PDP, ops, thesis        Hritik
+  site/       the pitch landing page (port 3001)           Hritik
   embed/      the iframe: camera, MediaPipe, sizing math   Hritik
 packages/
   core/       FROZEN types, ports, sizing, risk scoring    shared
