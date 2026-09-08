@@ -28,7 +28,7 @@ export function Nav({ tryOnUrl }: { tryOnUrl: string }) {
             <path d="M4 11s2.6-4 7-4 7 4 7 4-2.6 4-7 4-7-4-7-4Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
             <circle cx="11" cy="11" r="1.9" fill="var(--accent)" />
           </svg>
-          openetra
+          physisync
         </a>
 
         <div className="nav-links">

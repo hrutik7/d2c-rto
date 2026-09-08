@@ -4,9 +4,9 @@ import './globals.css';
 /** Where this app itself is served. Used for canonical + OG absolute URLs. */
 const SITE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3001').replace(/\/+$/, '');
 
-const TITLE = 'Openetra — your RTO is a fit problem';
+const TITLE = 'Physisync — your RTO is a fit problem';
 const DESCRIPTION =
-  'Eleven courier reason codes, and not one of them can say "ran small". Openetra re-cuts \u20b970 lakh of returned freight against your own exchange records.';
+  'Eleven courier reason codes, and not one of them can say "ran small". Physisync re-cuts \u20b970 lakh of returned freight against your own exchange records.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: TITLE,
     description: DESCRIPTION,
     url: '/',
-    siteName: 'Openetra',
+    siteName: 'Physisync',
     type: 'website',
   },
   twitter: { card: 'summary_large_image', title: TITLE, description: DESCRIPTION },

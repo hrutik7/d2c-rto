@@ -74,7 +74,7 @@ def ensure_cert(ip: str) -> None:
     subprocess.run(
         ["openssl", "req", "-x509", "-newkey", "rsa:2048", "-nodes", "-days", "365",
          "-keyout", str(KEY), "-out", str(CERT),
-         "-subj", "/CN=opentra-fit",
+         "-subj", "/CN=physisync-fit",
          "-addext", "subjectAltName=IP:%s,IP:127.0.0.1,DNS:localhost" % ip],
         check=True, capture_output=True)
 

@@ -105,7 +105,7 @@ export function Hero({
         </div>
 
         <div className="lift" style={{ ['--d' as any]: '470ms' }}>
-          <VideoDemo id="yl06MAjIWSE" title="Openetra — fit-attributed RTO, end to end" label="2 min demo" />
+          <VideoDemo id="yl06MAjIWSE" title="Physisync — fit-attributed RTO, end to end" label="2 min demo" />
         </div>
       </div>
     </header>
