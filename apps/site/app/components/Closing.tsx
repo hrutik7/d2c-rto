@@ -44,11 +44,14 @@ export function Footer({ shopUrl, tryOnUrl }: { shopUrl: string; tryOnUrl: strin
                 <path d="M4 11s2.6-4 7-4 7 4 7 4-2.6 4-7 4-7-4-7-4Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" />
                 <circle cx="11" cy="11" r="1.9" fill="var(--accent)" />
               </svg>
-              openetra
+              physisync
             </div>
             <p className="t-12" style={{ maxWidth: '34ch' }}>
-              Openetra — fit-attributed RTO for D2C apparel. Built on the order history you
+              Physisync — fit-attributed RTO for D2C apparel. Built on the order history you
               already have.
+            </p>
+            <p className="t-12" style={{ marginTop: 14 }}>
+              <a href="mailto:hrutik@physisync.co.in">hrutik@physisync.co.in</a>
             </p>
           </div>
 
@@ -75,6 +78,7 @@ export function Footer({ shopUrl, tryOnUrl }: { shopUrl: string; tryOnUrl: strin
         </div>
 
         <div className="foot-bot">
+          <span>© {new Date().getFullYear()} Physisync · physisync.co.in</span>
           <span>Kaira · womenswear · 12 months to Sep 2026</span>
           <span>Synthetic corpus — 45,000 orders, answer key retained</span>
         </div>

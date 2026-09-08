@@ -1,6 +1,6 @@
 # H&K — apparel try-on
 
-A fictional H&M-style storefront that exists to host Opentra's L1 fit layer for
+A fictional H&M-style storefront that exists to host Physisync's L1 fit layer for
 apparel. Judges point a camera at themselves, see the hoodie on their body, and
 get a size that came from a measurement rather than a guess.
 
@@ -48,7 +48,7 @@ than passing it off as a stabilised one.
 5. **Use M** drops the size into the product page.
 
 Then pick a different size by hand. The fit note flips to **Size overridden**
-and the Opentra panel flags it for dispatch. That override is the L1 signal, and
+and the Physisync panel flags it for dispatch. That override is the L1 signal, and
 it is the thing no apparel stack records today.
 
 ## How the size is derived
@@ -110,7 +110,7 @@ line, which would silently shrink every measurement taken from it.
 | `hoodie3d.js` | The 3D overlay: loads the .glb, poses the rig from landmarks, renders over the video. |
 | `tools/export-glb.mjs` | Writes `assets/hoodie.glb` from the generator. |
 | `test/` | Four headless checks; `pnpm tryon:test`. |
-| `index.html` | The storefront, the try-on panel and the Opentra telemetry panel. |
+| `index.html` | The storefront, the try-on panel and the Physisync telemetry panel. |
 | `assets/*.jpg` | Product photography, one shot per colourway, cropped to 3:4. |
 | `assets/garment.png` | The hoodie keyed out of the off-white studio shot — the try-on plate. |
 | `vendor/` | MediaPipe tasks-vision + `pose_landmarker_lite`, ~24 MB, committed so the demo runs with the venue wifi down. |
