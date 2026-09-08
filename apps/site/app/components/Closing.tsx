@@ -57,23 +57,31 @@ export function Footer({ shopUrl, tryOnUrl }: { shopUrl: string; tryOnUrl: strin
 
           <div className="foot-col">
             <h4>The case</h4>
-            <a href="#leak">The leak</a>
-            <a href="#flip">The re-cut</a>
-            <a href="#styles">Styles</a>
+            <a href="/#leak">The leak</a>
+            <a href="/#flip">The re-cut</a>
+            <a href="/#styles">Styles</a>
           </div>
 
           <div className="foot-col">
             <h4>Product</h4>
-            <a href="#how">How it works</a>
+            <a href="/#how">How it works</a>
             <a href={tryOnUrl}>Try-on</a>
             <a href={shopUrl}>Storefront demo</a>
-            <a href="#faq">FAQ</a>
+            <a href="/#faq">FAQ</a>
           </div>
 
           <div className="foot-col">
             <h4>Method</h4>
-            <a href="#flip">Attribution</a>
-            <a href="#faq">Assumptions</a>
+            <a href="/#flip">Attribution</a>
+            <a href="/#faq">Assumptions</a>
+          </div>
+
+          <div className="foot-col">
+            <h4>Company</h4>
+            <a href="/about">About</a>
+            <a href="mailto:hrutik@physisync.co.in">Contact</a>
+            <a href="/privacy">Privacy</a>
+            <a href="/terms">Terms</a>
           </div>
         </div>
 

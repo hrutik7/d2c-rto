@@ -12,36 +12,12 @@ import { Rings } from './components/Rings';
 import { StylesTable } from './components/StylesTable';
 import { Faq } from './components/Faq';
 import { Cta, Footer } from './components/Closing';
-
-/**
- * The two apps deploy to separate origins — this landing page to the apex, the
- * @rto/web storefront to a subdomain — so every cross-app link is built from
- * one configured origin rather than a relative path.
- *
- *   NEXT_PUBLIC_STORE_URL=https://demo.physisync.co.in
- *
- * NEXT_PUBLIC_* is inlined at BUILD time, not read at runtime, so this has to
- * be set in the build environment. A container started with the right value
- * but built without it still ships localhost.
- */
-const STORE_URL = (process.env.NEXT_PUBLIC_STORE_URL ?? 'http://localhost:3000').replace(/\/+$/, '');
-
-const SHOP_URL = `${STORE_URL}/shop`;
-
-/**
- * The catalogue index has no size picker, so it has no try-on. A CTA that
- * promises one has to land on an actual product page, and `#find-my-size`
- * tells widget.js to open the camera straight away rather than leaving the
- * visitor standing next to the button.
- */
-const pdp = (styleId: string) => `${SHOP_URL}/${styleId}#find-my-size`;
+import { SHOP_URL, TRY_ON_URL, pdp } from './lib/urls';
 
 export default function Page() {
   const d = diagnosis as any;
   const sizePct = (d.adjustedSizeRupees / d.totalRtoRupees) * 100;
-  // The worst offender by attributed cost — the page where the offset matters
-  // most is the right place to show the offset working.
-  const tryOnUrl = pdp(d.styles[0].styleId);
+  const tryOnUrl = TRY_ON_URL;
 
   return (
     <>

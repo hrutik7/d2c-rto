@@ -7,6 +7,7 @@ const LINKS = [
   { href: '#how', label: 'How it works' },
   { href: '#styles', label: 'Styles' },
   { href: '#faq', label: 'FAQ' },
+  { href: '/about', label: 'Company' },
 ];
 
 export function Nav({ tryOnUrl }: { tryOnUrl: string }) {
