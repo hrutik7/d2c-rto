@@ -26,6 +26,19 @@ import { COLOURWAYS, drawGarment, loadPlate, plateReady } from './garment';
  * worldLandmarks and her height, and is unchanged by anything drawn here.
  */
 
+/**
+ * Where the wasm runtime and the pose model are served from.
+ *
+ * These two are 38MB together and every cold visitor pays for both. On the app
+ * origin that is the box's CPU and its metered transfer; on CloudFront it is
+ * inside a free tier and cached at the edge in her city.
+ *
+ * Empty default = same origin, so `public/mediapipe` still serves local dev
+ * with nothing configured. NEXT_PUBLIC_* is inlined at BUILD time, so this has
+ * to be set in the build environment, not just the runtime one.
+ */
+const MEDIAPIPE_BASE = process.env.NEXT_PUBLIC_CDN_URL ?? '';
+
 type Phase = 'height' | 'camera' | 'result';
 
 export function PoseCapture({
@@ -73,9 +86,12 @@ export function PoseCapture({
       void loadPlate();
 
       const vision = await import('@mediapipe/tasks-vision');
-      const fileset = await vision.FilesetResolver.forVisionTasks('/mediapipe/wasm');
+      const fileset = await vision.FilesetResolver.forVisionTasks(`${MEDIAPIPE_BASE}/mediapipe/wasm`);
       landmarkerRef.current = await vision.PoseLandmarker.createFromOptions(fileset, {
-        baseOptions: { modelAssetPath: '/mediapipe/pose_landmarker_lite.task', delegate: 'GPU' },
+        baseOptions: {
+          modelAssetPath: `${MEDIAPIPE_BASE}/mediapipe/pose_landmarker_lite.task`,
+          delegate: 'GPU',
+        },
         runningMode: 'VIDEO',
         numPoses: 1,
       });
